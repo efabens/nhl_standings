@@ -7,6 +7,8 @@
 <body>
 <table>
 <tr>
+    <th>Rank</th>
+    <th>Logo</th>
     <th>Team</th>
     <th>Conf</th>
     <th>Div</th>
@@ -16,9 +18,12 @@
     <th>OTL</th>
     <th>Points</th>
     <th>ROW</th>
+    <th>GL</th>
+    <th>P Elim</th>
 </tr>
 {% for item in standings %}
     <tr class='team' id="{{ item.team.short_name }}">
+        <td>{{loop.index}}</td>
         <td><img src="{{item.team.sportsnet_logos.tiny}}"></td>
         <td class='name'>{{ item.team.medium_name }}</td>
         <td>{{ item.conference[0] }}</td>
@@ -28,6 +33,14 @@
         <td>{{ item.losses }}</td>
         <td>{{ item.overtime_losses }}</td>
         <td class="points">{{ item.points }}</td>
+        <td>{{ item.regulation_plus_overtime_wins }}</td>
+        <td>{{ item.gl }}</td>
+        {% if item.max_p-maxi >= 0 %}
+        <td> {{ item.max_p-maxi}}</td>
+        {% else %}
+        <td>--</td>
+        {% endif %}
+
     </tr>
 {% endfor %}
 </table>
