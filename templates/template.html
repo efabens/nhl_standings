@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NHL Standings</title>
+</head>
+<body>
+<table>
+<tr>
+    <th>Team</th>
+    <th>Conf</th>
+    <th>Div</th>
+    <th>GP</th>
+    <th>W</th>
+    <th>L</th>
+    <th>OTL</th>
+    <th>Points</th>
+</tr>
+{% for key, item in standings.iteritems() %}
+    <tr>
+        <td>{{ key }}</td>
+        <td>{{ item.conf[0] }}</td>
+        <td>{{ item.divi[0] }}</td>
+        <td>{{ item.gp }}</td>
+        <td>{{ item.w }}</td>
+        <td>{{ item.l }}</td>
+        <td>{{ item.otl }}</td>
+        <td>{{ item.points }}</td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>
