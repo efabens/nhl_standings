@@ -5,7 +5,12 @@ table, th, td  {
 
 table {
     margin: 0px auto;
+    text-align: center;
 
+}
+
+.name{
+    text-align: left;
 }
 
 td {

@@ -15,16 +15,18 @@
     <th>L</th>
     <th>OTL</th>
     <th>Points</th>
+    <th>ROW</th>
 </tr>
-{% for key, item in standings.iteritems() %}
-    <tr class='team' id="{{ item.abrev }}">
-        <td>{{ key }}</td>
-        <td>{{ item.conf[0] }}</td>
-        <td>{{ item.divi[0] }}</td>
-        <td>{{ item.gp }}</td>
-        <td>{{ item.w }}</td>
-        <td>{{ item.l }}</td>
-        <td>{{ item.otl }}</td>
+{% for item in standings %}
+    <tr class='team' id="{{ item.team.short_name }}">
+        <td><img src="{{item.team.sportsnet_logos.tiny}}"></td>
+        <td class='name'>{{ item.team.medium_name }}</td>
+        <td>{{ item.conference[0] }}</td>
+        <td>{{ item.division[0] }}</td>
+        <td>{{ item.games_played }}</td>
+        <td>{{ item.wins }}</td>
+        <td>{{ item.losses }}</td>
+        <td>{{ item.overtime_losses }}</td>
         <td class="points">{{ item.points }}</td>
     </tr>
 {% endfor %}
