@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>NHL Standings</title>
+    <link rel="stylesheet" type="text/css" href="nhl.css"/>
 </head>
 <body>
 <table>
@@ -16,7 +17,7 @@
     <th>Points</th>
 </tr>
 {% for key, item in standings.iteritems() %}
-    <tr>
+    <tr class='team' id="{{ item.abrev }}">
         <td>{{ key }}</td>
         <td>{{ item.conf[0] }}</td>
         <td>{{ item.divi[0] }}</td>
