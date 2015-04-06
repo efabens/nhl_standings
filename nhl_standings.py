@@ -1,7 +1,7 @@
-from bs4 import BeautifulSoup as bs
 import urllib2
 from jinja2 import Environment, FileSystemLoader
 import json
+from ftplib import FTP
 
 def process(a_list):
     highest_max=0
@@ -22,7 +22,8 @@ if __name__ == "__main__":
     highest=process(teams)
 
     env = Environment(loader=FileSystemLoader('templates'))
-    template = env.get_template('template.html')
+    template = env.get_template('template.jinja')
 
     with open('pages/standings.html', 'w') as nh:
         nh.write(template.render(standings=teams, maxi=highest))
+
